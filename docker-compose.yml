@@ -9,8 +9,8 @@ services:
     restart: always
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.fastapi.rule=Host(`front.apiproc.site`)"
-      - "traefik.http.routers.fastapi.entrypoints=https"
+      - "traefik.http.routers.sportfront.rule=Host(`front.apiproc.site`)"
+      - "traefik.http.routers.sportfront.entrypoints=https"
 #      - "traefik.http.routers.fastapi.tls.certresolver=ls"
     deploy:
       resources:
