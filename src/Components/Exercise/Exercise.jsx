@@ -131,14 +131,16 @@ function Exercise({ trExercise }) {
                             className={cl.input}
                             placeholder="Вес"
                         />
-                        {/* Кнопка для записи подхода */}
+
+                    </div>
+                    <div className={cl.inputGroup}>
                         <button
                             className={cl.saveButton}
                             onClick={createApprouch}
                             type="button">
                             Записать
-                        </button>
-                    </div>
+                        </button></div>
+
                 </div>
             )}
         </>

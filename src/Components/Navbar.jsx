@@ -6,10 +6,12 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import SportApp from "../API/SportApp";
 import { Toast } from 'primereact/toast';
+import { useState } from "react";
 
 export function Navbar() {
 
   const { isAuth, setIsAuth } = useContext(AuthContext);
+  const [loaderCreateTraning, setLoaderCreateTraning] = useState(false);
   const navigate = useNavigate()
 
   function logOut() {
@@ -20,16 +22,19 @@ export function Navbar() {
   const token = Cookies.get("token");
 
   const toast = useRef(null);
-
   async function createTraning() {
-      try {
-          const response = await SportApp.create_traning({ title: "" }, token);
-          toast.current.show({ severity: 'success', summary: 'Успешно', detail: 'Создана новая тренировка', life: 3000 });
-          navigate(`/traning/${response.data.id}`);
-          return;
-      } catch (e) {
-          toast.current.show({ severity: 'error', summary: 'Ошибка', detail: 'Не удалось создать тренировку', life: 3000 });
-      }
+    if (loaderCreateTraning) return;
+    try {
+      setLoaderCreateTraning(true);
+      const response = await SportApp.create_traning({ title: "" }, token);
+      toast.current.show({ severity: 'success', summary: 'Успешно', detail: 'Создана новая тренировка', life: 3000 });
+      navigate(`/traning/${response.data.id}`);
+      return;
+    } catch (e) {
+      toast.current.show({ severity: 'error', summary: 'Ошибка', detail: 'Не удалось создать тренировку', life: 3000 });
+    } finally {
+      setLoaderCreateTraning(false);
+    }
   }
 
   return (
@@ -42,7 +47,7 @@ export function Navbar() {
 
         <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           {isAuth ? <>
-            <Link className="me-3 py-2 link-body-emphasis text-decoration-none" to="#" onClick={createTraning}>Начать тренировку</Link>
+            <a disabled className="me-3 py-2 link-body-emphasis text-decoration-none" href="#" onClick={createTraning}>Начать тренировку</a>
             <Link className="me-3 py-2 link-body-emphasis text-decoration-none" to="myexercises/">Мои упражнения</Link>
             <a className="py-2 link-body-emphasis text-decoration-none" href="#" onClick={logOut}>Выход</a>
           </>

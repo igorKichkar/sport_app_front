@@ -13,8 +13,8 @@ RUN npm install
 # Копируем остальные файлы проекта
 COPY . .
 
-# Собираем приложение для продакшена
-RUN npm run build
+# Ограничиваем память для Node.js до 512 MB при сборке приложения
+RUN NODE_OPTIONS="--max-old-space-size=512" npm run build
 
 # Используем Nginx для сервировки файлов в продакшене
 FROM nginx:alpine
@@ -30,3 +30,4 @@ EXPOSE 80
 
 # Запускаем Nginx
 CMD ["nginx", "-g", "daemon off;"]
+

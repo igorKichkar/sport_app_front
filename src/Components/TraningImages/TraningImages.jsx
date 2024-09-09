@@ -8,6 +8,7 @@ import { Toast } from 'primereact/toast';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { BASE_URL } from "../../config";
+import Loader from "../Loader/Loader";
 
 
 function TraningImages({ trImages, trId }) {
@@ -15,6 +16,7 @@ function TraningImages({ trImages, trId }) {
     const [traningImages, setTraningImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageToDelete, setImageToDelete] = useState(null); // Для хранения выбранного изображения для удаления
+    const [loaderImageUpload, setLoaderImageUpload] = useState(false)
     const toast = useRef(null);
 
     useEffect(() => {
@@ -46,6 +48,7 @@ function TraningImages({ trImages, trId }) {
     }
 
     async function imageUploader(images) {
+        setLoaderImageUpload(true);
         const formData = new FormData();
         formData.append('body', "b");
         formData.append('item_id', trId);
@@ -60,6 +63,8 @@ function TraningImages({ trImages, trId }) {
             setTraningImages([...traningImages, ...response.data.success_add]);
         } catch (e) {
             toast.current.show({ severity: 'error', summary: 'Ошибка', detail: 'Не удалось загрузить изображение', life: 3000 });
+        } finally {
+            setLoaderImageUpload(false);
         }
     }
 
@@ -102,23 +107,23 @@ function TraningImages({ trImages, trId }) {
             )}
 
             <div className={styles.uploadButtonContainer}>
-                <FileUpload
-                    auto 
-                    mode="basic" 
-                    customUpload 
-                    uploadHandler={imageUploader} 
-                    multiple 
-                    accept="image/*" 
-                    maxFileSize={3000000} 
+                {loaderImageUpload ? <Loader /> : <FileUpload
+                    auto
+                    mode="basic"
+                    customUpload
+                    uploadHandler={imageUploader}
+                    multiple
+                    accept="image/*"
+                    maxFileSize={3000000}
                     chooseLabel="Загрузить изображения"
-                />
+                />}
             </div>
 
             {/* Модальное окно для подтверждения удаления */}
-            <Dialog 
-                header="Подтверждение удаления" 
-                visible={!!imageToDelete} 
-                style={{ width: '350px' }} 
+            <Dialog
+                header="Подтверждение удаления"
+                visible={!!imageToDelete}
+                style={{ width: '350px' }}
                 footer={
                     <div>
                         <Button label="Отмена" icon="pi pi-times" onClick={() => setImageToDelete(null)} className="p-button-text" />

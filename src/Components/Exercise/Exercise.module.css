@@ -87,23 +87,24 @@
 /* Ограничиваем размер инпутов */
 .input {
     flex: 1; /* Инпуты занимают одинаковую долю ширины контейнера */
-    padding: 8px; /* Уменьшаем внутренние отступы для инпутов */
+    padding-top: 8px;
+    padding-bottom: 8px;
     border: 1px solid #dcdcdc;
     border-radius: 4px;
-    max-width: 40%; /* Устанавливаем максимальную ширину */
+    max-width: 50%; 
 }
 
 /* Кнопка сохраняет фиксированный размер */
 .saveButton {
+    flex: 1;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    padding: 8px 12px; /* Уменьшаем размер кнопки */
+    padding: 8px;
     font-weight: bold;
+    margin-top: 10px;
     cursor: pointer;
-    flex-shrink: 0; /* Кнопка не сжимается */
-    white-space: nowrap; /* Текст кнопки не переносится */
     transition: background-color 0.3s ease;
 }
 

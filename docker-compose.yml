@@ -12,8 +12,15 @@ services:
       - "traefik.http.routers.fastapi.rule=Host(`front.apiproc.site`)"
       - "traefik.http.routers.fastapi.entrypoints=https"
 #      - "traefik.http.routers.fastapi.tls.certresolver=ls"
+    deploy:
+      resources:
+        limits:
+          memory: 600M      # Hard limit, the container will be killed if it exceeds this
+        reservations:
+          memory: 300M      # Soft limit, expected memory usage
 
 networks:
   default:
     name: proxynet
     external: true
+

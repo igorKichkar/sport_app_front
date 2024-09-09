@@ -19,7 +19,7 @@ function ListExercises({ trExercises, traningId }) {
 
     async function createExercise() {
         if (!newExercise.current.value) {
-            toast.current.show({ severity: 'info', summary: 'Внимание',detail:'Нельзя добавить упражнение без названия', life: 3000 });
+            toast.current.show({ severity: 'info', summary: 'Внимание', detail: 'Нельзя добавить упражнение без названия', life: 3000 });
             return;
         }
 
@@ -47,25 +47,27 @@ function ListExercises({ trExercises, traningId }) {
             <p></p>
             <div className={cl.container}>
                 <div className={cl.addExerciseSection}>
-                    <input
-                        ref={newExercise}
-                        type="text"
-                        className={cl.input}
-                        placeholder="Название упражнения"
-                    />
-                    <button
-                        onClick={createExercise}
-                        className={`${cl.buttonCreateExercise} ${exerciseLoader ? cl.loading : ''}`}
-                        disabled={exerciseLoader}
-                    >
-                        {exerciseLoader ? (
-                            <>
-                                <span className="spinner-border spinner-border-sm"></span> Добавление...
-                            </>
-                        ) : (
-                            'Добавить'
-                        )}
-                    </button>
+
+                    <div class="input-group mb-3">
+                        <input ref={newExercise}
+                            type="text"
+                            className="form-control"
+                            placeholder="Название упражнения"></input>
+                        <div class="input-group-append">
+                            <button className="btn btn-secondary" type="button"
+                                disabled={exerciseLoader}
+                                onClick={createExercise}
+                            >
+                                {exerciseLoader ? (
+                                    <>
+                                        <span className="spinner-border spinner-border-sm"></span> Добавление...
+                                    </>
+                                ) : (
+                                    'Добавить'
+                                )}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -73,4 +75,4 @@ function ListExercises({ trExercises, traningId }) {
     );
 }
 
-export default ListExercises;
+export default ListExercises; 
