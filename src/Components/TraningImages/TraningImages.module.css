@@ -1,0 +1,106 @@
+/* Контейнер для всех изображений */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Расстояние между карточками */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Карточка с изображением */
+.imageCard {
+    position: relative;
+    width: 200px; /* Ширина карточки */
+    height: 200px; /* Высота карточки */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    background-color: #fff; /* Белый фон */
+}
+
+/* Стили для изображения */
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполнение изображения */
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Кнопка удаления изображения */
+.removeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.removeButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Стили для модального окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    position: relative;
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.modalImage {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
+
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.closeModal:hover {
+    background: rgba(0, 0, 0, 1);
+}
+
+.uploadButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

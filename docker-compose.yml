@@ -1,0 +1,19 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fastapi.rule=Host(`front.apiproc.site`)"
+      - "traefik.http.routers.fastapi.entrypoints=https"
+#      - "traefik.http.routers.fastapi.tls.certresolver=ls"
+
+networks:
+  default:
+    name: proxynet
+    external: true

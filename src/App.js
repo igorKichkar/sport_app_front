@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Main from './pages/Main';
+import LoginForm from './pages/Login';
+import Registration from './pages/Registratin';
+import { Navbar } from './Components/Navbar';
+import OpenTraning from './pages/OpenTraning/OpenTraning';
+import { useState, useEffect } from "react";
+import { AuthContext } from './context';
+import Cookies from 'js-cookie';
+import MyExercises from './pages/MyExercises';
+import NotFound from './pages/NotFound/NotFound';
+
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 function App() {
+
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    if (Cookies.get("token")) setIsAuth(true);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/myexercises" element={<MyExercises />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/traning/:id" element={<OpenTraning />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+      </AuthContext.Provider>
+    </BrowserRouter>
+
   );
 }
 

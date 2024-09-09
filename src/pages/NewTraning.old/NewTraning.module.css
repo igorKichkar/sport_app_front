@@ -1,0 +1,52 @@
+.traning{
+    min-height: 60px;
+    border: 2px solid rgb(209, 209, 209);
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(235, 255, 231);
+}
+
+.titleExercise{
+  margin-left: 10px;
+    /* text-align: end; */
+    font-weight: bold;
+}
+
+.sum{
+    font-weight: bold;
+}
+
+.sumText{
+    font-style: italic;
+    text-align: center;
+}
+
+.table{
+    margin-left: 5px;
+    margin-right: 5px;
+    /* text-align: center; */
+}
+
+.removeExercise{
+    text-align: right;
+    display: block;
+    margin-top: -22px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+
+    
+    /* margin-left: 100px; */
+}
+
+.removeApprouch{
+    cursor: pointer;
+    color: gray;
+}
+.removeApprouch:hover{
+    color: black;
+}
+.imageWrapper{
+    width: 50px;
+    margin: 5px;
+}

@@ -1,0 +1,106 @@
+/* Основной контейнер страницы */
+.mainContainer {
+    padding: 20px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Контейнер для заголовка и фильтра */
+.headerContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+/* Кнопка сортировки */
+.sortButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #1877f2;
+    transition: color 0.3s ease;
+}
+
+.sortButton:hover {
+    color: #1559d0;
+}
+
+/* Поле ввода для фильтрации */
+.filterInput {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+}
+
+/* Контейнер для списка тренировок с адаптивным CSS Grid */
+.trainingListContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Минимум 2 элемента в ряду на экранах */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Индивидуальные элементы списка тренировок */
+.trainingItemWrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Стили для пагинации */
+.pagination {
+    display: flex; /* Используем flex для горизонтального выравнивания */
+    justify-content: center; /* Центрируем элементы пагинации */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 20px 0 0 0;
+    flex-direction: row; /* Элементы располагаются горизонтально */
+  }
+  
+  .page, .previous, .next {
+    margin: 0 5px; /* Отступы между кнопками */
+    padding: 0; /* Убираем внутренние отступы, чтобы вся зона была кликабельной */
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Элемент в строку */
+  }
+  
+  .page a, .previous a, .next a {
+    display: block; /* Делает весь элемент <a> кликабельным */
+    padding: 10px 15px; /* Внутренние отступы для удобного клика */
+    text-decoration: none;
+    color: inherit; /* Наследует цвет */
+    width: 100%; /* Захватывает всю ширину родительского элемента */
+    height: 100%; /* Захватывает всю высоту родительского элемента */
+  }
+  
+  .page:hover, .previous:hover, .next:hover {
+    background-color: #f0f0f0; /* Эффект при наведении */
+  }
+  
+  .activePage {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  
+  
+
+
+

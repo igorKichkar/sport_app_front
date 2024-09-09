@@ -1,0 +1,117 @@
+/* Общие стили контейнера */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Белый фон */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для заголовка и кнопки удаления */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exerciseTitle {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333; /* Темно-серый цвет */
+    display: flex;
+    align-items: center;
+}
+
+.removeButton {
+    cursor: pointer;
+    color: #007bff; /* Синий цвет кнопки удаления */
+    transition: color 0.3s ease;
+}
+
+.removeButton:hover {
+    color: #0056b3; /* Темно-синий при наведении */
+}
+
+.toggleButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; /* Синий цвет кнопки сворачивания */
+    font-size: 18px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggleButton:hover {
+    color: #0056b3; /* Темно-синий при наведении */
+}
+
+/* Стили для контейнера карточек */
+.cardContainer {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.cardContainer.expanded {
+    max-height: 1000px; /* Достаточно большое значение, чтобы все карточки вмещались */
+    opacity: 1;
+}
+
+/* Стили для резюме */
+.summary {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333; /* Темно-серый цвет */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sum {
+    font-weight: 600;
+    color: #007bff; /* Синий цвет для акцентов */
+}
+
+/* Стили для группы ввода */
+.inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Уменьшаем расстояние между инпутами и кнопкой */
+    width: 100%; /* Контейнер занимает всю ширину */
+}
+
+/* Ограничиваем размер инпутов */
+.input {
+    flex: 1; /* Инпуты занимают одинаковую долю ширины контейнера */
+    padding: 8px; /* Уменьшаем внутренние отступы для инпутов */
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    max-width: 40%; /* Устанавливаем максимальную ширину */
+}
+
+/* Кнопка сохраняет фиксированный размер */
+.saveButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px; /* Уменьшаем размер кнопки */
+    font-weight: bold;
+    cursor: pointer;
+    flex-shrink: 0; /* Кнопка не сжимается */
+    white-space: nowrap; /* Текст кнопки не переносится */
+    transition: background-color 0.3s ease;
+}
+
+/* Добавляем эффект при наведении на кнопку */
+.saveButton:hover {
+    background-color: #0056b3;
+}
+
+.saveButton:active {
+    background-color: #004080; /* Еще более темный синий при нажатии */
+}

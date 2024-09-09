@@ -1,0 +1,10 @@
+.removeApprouch{
+    cursor: pointer;
+    color: gray;
+}
+
+.removeApprouch:hover{
+    color: black;
+}
+
+

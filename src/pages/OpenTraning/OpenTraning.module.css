@@ -1,0 +1,214 @@
+/* Общие стили контейнера */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Белый фон */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для заголовка и кнопки удаления */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exerciseTitle {
+    cursor: pointer;
+    max-width: 600px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333; /* Темно-серый цвет */
+}
+
+.removeButton {
+    cursor: pointer;
+    color: #007bff; /* Синий цвет кнопки удаления */
+    transition: color 0.3s ease;
+}
+
+.removeButton:hover {
+    color: #0056b3; /* Темно-синий при наведении */
+}
+
+.toggleButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; /* Синий цвет кнопки сворачивания */
+    font-size: 18px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggleButton:hover {
+    color: #0056b3; /* Темно-синий при наведении */
+}
+
+/* Стили для контейнера карточек */
+.cardContainer {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.cardContainer.expanded {
+    max-height: 1000px; /* Достаточно большое значение, чтобы все карточки вмещались */
+    opacity: 1;
+}
+
+.cardContainer.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Шапка карточек */
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Светло-серый фон для шапки */
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+    color: #333333; /* Темно-серый текст */
+}
+
+.cardHeader > span {
+    /* width: 80%; */
+    text-align: left; /* Выравнивание текста по левому краю */
+    /* padding: 0 10px; */
+}
+
+/* Стили для карточек */
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e0e0e0; /* Светло-серая граница */
+    border-radius: 0 0 8px 8px;
+    background-color: #f9f9f9; /* Светло-серый фон карточки */
+}
+
+.cardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cardIndex, .cardAmount {
+    font-size: 16px;
+    color: #333333; /* Темно-серый цвет */
+}
+
+.cardIndex {
+    font-weight: bold;
+}
+
+.cardAmount {
+    font-weight: 500;
+    /* padding-left: 60px; */
+}
+
+.cardContent > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; /* Синий цвет для кнопки удаления в карточке */
+    font-size: 14px;
+}
+
+/* Стили для резюме */
+.summary {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333333; /* Темно-серый цвет */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sum {
+    font-weight: 600;
+    color: #007bff; /* Синий цвет для акцентов */
+}
+
+/* Стили для группы ввода */
+.inputGroup {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #dcdcdc; /* Светло-серая граница */
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.input:focus {
+    border-color: #007bff; /* Синий цвет границы при фокусе */
+    outline: none;
+}
+
+.saveButton {
+    background-color: #007bff; /* Синий цвет для кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.saveButton:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+.saveButton:active {
+    background-color: #004080; /* Еще более темный синий при нажатии */
+}
+
+.removeApprouch{
+    cursor: pointer;
+    color: gray;
+}
+
+.removeApprouch:hover{
+    color: black;
+}
+
+.buttonCreateExercise {
+    background-color: #007bff; /* Синий цвет для кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.buttonCreateExercise:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+.buttonCreateExercise:disabled {
+    background-color: #d6d6d6; /* Светло-серый для неактивной кнопки */
+    cursor: not-allowed;
+}
+
+.addExerciseSection {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между полем ввода и кнопкой */
+}
+

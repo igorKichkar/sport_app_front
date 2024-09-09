@@ -1,0 +1,50 @@
+/* Общие стили контейнера */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Белый фон */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для секции добавления упражнения */
+.addExerciseSection {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между полем ввода и кнопкой */
+}
+
+.input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #dcdcdc; /* Светло-серая граница */
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.input:focus {
+    border-color: #007bff; /* Синий цвет границы при фокусе */
+    outline: none;
+}
+
+.buttonCreateExercise {
+    background-color: #6c757d; /* Синий цвет для кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.buttonCreateExercise:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+.buttonCreateExercise:disabled {
+    background-color: #d6d6d6; /* Светло-серый для неактивной кнопки */
+    cursor: not-allowed;
+}
